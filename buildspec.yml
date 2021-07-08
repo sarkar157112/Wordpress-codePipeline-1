@@ -7,3 +7,4 @@ phases:
   pre_build:
     commands:
         - echo "Running Pre-Build script..."
+        - printenv
