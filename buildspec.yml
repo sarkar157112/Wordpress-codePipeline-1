@@ -10,6 +10,9 @@ phases:
   install:
     runtime-versions:
         php: 7.3
+  pre_build:
+    commands:
+        - echo "prebuild"
   build:
     commands:
         - sed -i 's/database_name_here/'$DB_NAME'/' wordpress/wp-config.php
