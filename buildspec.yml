@@ -7,8 +7,7 @@ phases:
   pre_build:
     commands:
         - echo "Running Pre-Build script..."
-        - $DB_NAME = printenv DB_NAME
-        - $DB_USER = printenv DB_USER
-        - $DB_PASSWORD = printenv DB_PASSWORD
-        - $DB_HOST = printenv DB_HOST
-        - echo $DB_HOST
+        - printenv DB_NAME
+        - printenv DB_USER
+        - printenv DB_PASSWORD
+        - printenv DB_HOST
