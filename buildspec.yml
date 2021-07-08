@@ -1,13 +1,25 @@
 version: 0.2
+env:
+  parameter-store:
+    DB_NAME: /Manali/DB_Name
+    DB_USER: /Manali/DB_USER
+    DB_PASSWORD: /Manali/DB_PASSWORD
+    DB_HOST: /Manali/DB_HOST
 
 phases:
   install:
     runtime-versions:
         php: 7.3
-  pre_build:
+  build:
     commands:
-        - echo "Running Pre-Build script..."
-        - printenv DB_NAME
-        - printenv DB_USER
-        - printenv DB_PASSWORD
-        - printenv DB_HOST
+        - sed -i 's/database_name_here/$DB_NAME/' wp-config.php
+        - sed -i 's/username_here/$DB_USER/' wp-config.php
+        - sed -i 's/password_here/$DB_PASSWORD/' wp-config.php
+        - sed -i 's/localhost/$DB_HOST/' wp-config.php
+
+artifacts:
+     files:
+         - '**/*'
+       
+
+        #sed -i 's/database_name_here/'$DB_NAME'/' wp-config.php
