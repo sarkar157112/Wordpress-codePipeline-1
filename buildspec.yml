@@ -1,18 +1,12 @@
 version: 0.2
 env:
   parameter-store:
-    DB_NAME: /Manali/DB_Name
+    DB_NAME: /Manali/DB_NAME
     DB_USER: /Manali/DB_USER
     DB_PASSWORD: /Manali/DB_PASSWORD
     DB_HOST: /Manali/DB_HOST
 
 phases:
-  install:
-    runtime-versions:
-        php: 7.3
-  pre_build:
-    commands:
-        - echo "prebuild"
   build:
     commands:
         - sed -i 's/database_name_here/'$DB_NAME'/' wordpress/wp-config.php
