@@ -3,6 +3,7 @@ os: linux
 files:
   - source: /wordpress
     destination: /var/www/html/
+    overwrite: true
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies.sh
